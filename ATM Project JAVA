@@ -1,0 +1,70 @@
+import java.util.Scanner;
+public class Atm {
+    public static void main(String args[]){
+        int pin= 1971;
+        int balance= 100000;
+
+        int Addamount=0;
+        int Takeamount=0; 
+
+        Scanner a=new Scanner(System.in);
+        int password=0;
+        while(password!=pin){
+            System.out.println("enter the pin number:");
+            password=a.nextInt();
+        if(password!=pin){
+            System.out.println("Invalid pin , try again ");
+        }
+    }
+        a.nextLine();
+        System.out.println("Enter the name: ");
+        String name=a.nextLine();
+        System.out.println("Welcome "+ name);   
+        while(true){
+            System.out.println("Press 1 to check your balance: ");
+            System.out.println("Press 2 to add amount: ");
+            System.out.println("Press 3 to take amount");
+            System.out.println("press 4 to print receipt: ");
+            System.out.println("Press 5 to exit: ");
+
+            int opt=a.nextInt();
+            switch(opt){
+                case 1:
+                System.out.println("Your current balance is: "+balance);
+                break;
+                case 2:
+                System.out.println("Add amount: ");
+                Addamount=a.nextInt();
+                System.out.println("Successfully credited: ");
+                balance=Addamount + balance;
+                break;
+                case 3:
+                System.out.println("How much amount did you want to take: ");
+                Takeamount=a.nextInt();
+                if(Takeamount>balance){
+                    System.out.println("Insufficient balance");
+                }
+                else{
+                    System.out.println("Successfully Completed");
+                    balance=balance-Takeamount;
+                }
+                break;
+                case 4:
+                System.out.println("Welcome to GV ATM");
+                System.out.println("Available balance "+balance);
+                System.out.println("Amount deposited "+Addamount);
+                System.out.println("Amount taken "+ Takeamount);
+                System.out.println("Thanks for coming");
+                break;
+
+                case 5:
+                System.out.println("Thank you");
+                break;
+
+                default:
+                System.out.println("Please enter the number below 6 ");
+                break;
+            }
+    }
+}
+}
